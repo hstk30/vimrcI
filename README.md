@@ -1,0 +1,2 @@
+# vimrcI
+Personal vim config
