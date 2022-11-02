@@ -225,16 +225,14 @@ nnoremap <leader>ar :AsyncRun
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => YouCompleteMe
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-let g:ycm_show_diagnostics_ui = 0
-let g:ycm_server_log_level = 'info'
-let g:ycm_min_num_identifier_candidate_chars = 2
-let g:ycm_collect_identifiers_from_comments_and_strings = 1
+let g:ycm_show_diagnostics_ui=0
+let g:ycm_server_log_level='info'
+let g:ycm_min_num_identifier_candidate_chars=2
+let g:ycm_collect_identifiers_from_comments_and_strings=1
 let g:ycm_complete_in_strings=1
-let g:ycm_key_invoke_completion = '<c-z>'
+let g:ycm_key_invoke_completion='<c-z>'
 set completeopt=menu,menuone
-let g:ycm_add_preview_to_completeopt = 0
-highlight PMenu ctermfg=0 ctermbg=242 guifg=black guibg=darkgrey
-highlight PMenuSel ctermfg=242 ctermbg=8 guifg=darkgrey guibg=black
+let g:ycm_add_preview_to_completeopt=0
 
 nmap <leader>fw <Plug>(YCMFindSymbolInWorkspace)
 nmap <leader>fd <Plug>(YCMFindSymbolInDocument)
@@ -256,7 +254,12 @@ let g:ycm_filetype_whitelist = {
 			\ "c":1,
 			\ "cpp":1,
 			\ "python":1,
+            \ "rust": 1,
+            \ "lua": 1,
+            \ "go": 1,
+            \ "asm": 1,
 			\ "sh":1,
+			\ "make":1,
 			\ "zsh":1,
 			\ }
 

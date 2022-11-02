@@ -1,4 +1,4 @@
-let mapleader = " "
+let mapleader=" "
 
 " => universal ctags  https://github.com/universal-ctags/ctags
 " https://kulkarniamit.github.io/whatwhyhow/howto/use-vim-ctags.html
@@ -15,6 +15,9 @@ au FocusGained,BufEnter * checktime
 
 " 上下移动时，保留的最少行数
 set scrolloff=7
+
+" 水平切割窗口时，默认在右边显示新窗口
+set splitright
 
 " Avoid garbled characters in Chinese language windows OS
 let $LANG='en'
@@ -47,10 +50,13 @@ set wildignore+=*.msi,*.crx,*.deb,*.vfd,*.apk,*.ipa,*.bin,*.msu
 set wildignore+=*.gba,*.sfc,*.078,*.nds,*.smd,*.smc
 set wildignore+=*.linux2,*.win32,*.darwin,*.freebsd,*.linux,*.android
 
-" 显式行、列号 
+
+" display line number
+set number
+
+" display position (row, column)
 set ruler
 
-" 命令行高度
 set cmdheight=1
 
 " buffer become hidden when it is abandoned
@@ -69,7 +75,7 @@ set smartcase
 " Highlight search results
 set hlsearch
 
-" Disable highlight when <leader><cr> is pressed
+" Disable highlight 
 map <silent> <leader>/ :noh<cr>
 
 " Makes search act like search in modern browsers
@@ -85,7 +91,7 @@ set magic
 set showmatch
 
 " How many tenths of a second to blink when matching brackets
-set mat=2
+set matchtime=2
 
 " No annoying sound on errors
 set noerrorbells
@@ -98,9 +104,10 @@ if has("gui_macvim")
     autocmd GUIEnter * set vb t_vb=
 endif
 
-" Add a bit extra margin to the left
-set foldcolumn=1
-
+" 总是显示侧边栏（用于显示 mark/gitdiff/诊断信息）
+set signcolumn=yes
+" 总是显示标签栏
+set showtabline=2
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Colors and Fonts
@@ -161,18 +168,6 @@ set wrap "Wrap lines
 " Jump back up in the tag stack
 nmap g[ <c-t>
 
-" <leader>+数字键 切换tab
-noremap <silent><leader>1 1gt<cr>
-noremap <silent><leader>2 2gt<cr>
-noremap <silent><leader>3 3gt<cr>
-noremap <silent><leader>4 4gt<cr>
-noremap <silent><leader>5 5gt<cr>
-noremap <silent><leader>6 6gt<cr>
-noremap <silent><leader>7 7gt<cr>
-noremap <silent><leader>8 8gt<cr>
-noremap <silent><leader>9 9gt<cr>
-noremap <silent><leader>0 10gt<cr>
-
 """"""""""""""""""""""""""""""
 " => Visual mode related
 """"""""""""""""""""""""""""""
@@ -204,11 +199,22 @@ map <leader>tn :tabnew<cr>
 map <leader>to :tabonly<cr>
 map <leader>tc :tabclose<cr>
 
+" <leader>+数字键 切换tab
+noremap <silent><leader>1 1gt<cr>
+noremap <silent><leader>2 2gt<cr>
+noremap <silent><leader>3 3gt<cr>
+noremap <silent><leader>4 4gt<cr>
+noremap <silent><leader>5 5gt<cr>
+noremap <silent><leader>6 6gt<cr>
+noremap <silent><leader>7 7gt<cr>
+noremap <silent><leader>8 8gt<cr>
+noremap <silent><leader>9 9gt<cr>
+noremap <silent><leader>0 10gt<cr>
+
 " Let 'tl' toggle between this and the last accessed tab
 let g:lasttab = 1
 nmap <Leader>tl :exe "tabn ".g:lasttab<CR>
 au TabLeave * let g:lasttab = tabpagenr()
-
 
 " Opens a new tab with the current buffer's path
 map <leader>te :tabedit <C-r>=expand("%:p:h")<cr>/
