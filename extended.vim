@@ -21,24 +21,6 @@ set guioptions-=R
 set guioptions-=l
 set guioptions-=L
 
-" Colorscheme
-" 推荐备选一个light 的主题，写代码使用dark，有时候需要投屏的使用就需要light 
-set background=dark
-colorscheme peaksea
-" set background=light
-" colorscheme mac_classic
-
-" 去掉 sign column 的白色背景
-hi! SignColumn guibg=NONE ctermbg=NONE
-
-" 修改行号为浅灰色，默认主题的黄色行号很难看，换主题可以仿照修改
-highlight LineNr term=bold cterm=NONE ctermfg=DarkGrey ctermbg=NONE
-	\ gui=NONE guifg=DarkGrey guibg=NONE
-
-" 修正补全目录的色彩：默认太难看
-hi! Pmenu guibg=gray guifg=black ctermbg=gray ctermfg=black
-hi! PmenuSel guibg=gray guifg=brown ctermbg=brown ctermfg=gray
-
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Turn persistent undo on 

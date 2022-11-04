@@ -50,9 +50,8 @@ set wildignore+=*.msi,*.crx,*.deb,*.vfd,*.apk,*.ipa,*.bin,*.msu
 set wildignore+=*.gba,*.sfc,*.078,*.nds,*.smd,*.smc
 set wildignore+=*.linux2,*.win32,*.darwin,*.freebsd,*.linux,*.android
 
-
 " display line number
-set number
+" set number
 
 " display position (row, column)
 set ruler
@@ -105,11 +104,14 @@ if has("gui_macvim")
 endif
 
 " 总是显示侧边栏（用于显示 mark/gitdiff/诊断信息）
-set signcolumn=yes
+" set signcolumn=yes
+
 " 总是显示标签栏
 set showtabline=2
+set foldcolumn=1
 
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Colors and Fonts
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Enable syntax highlighting
