@@ -113,6 +113,7 @@ let g:ale_fixers = {
 
 let g:ale_c_gcc_options = '-Wall -std=c89'
 nmap <silent> <leader>a <Plug>(ale_next_wrap)
+nnoremap <leader>ld :ALEDetail<cr>
 
 " Disabling highlighting
 let g:ale_set_highlights = 0
@@ -131,7 +132,7 @@ let g:airline#extensions#ale#enabled = 1
 " => Git gutter (Git diff)
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let g:gitgutter_enabled=0
-nnoremap <silent> <leader>d :GitGutterToggle<cr>
+nnoremap <silent> <leader>df :GitGutterToggle<cr>
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -183,7 +184,6 @@ let g:gutentags_ctags_extra_args += [
             \ '--exclude=\*.md', '--exclude=\*.markdown', '--exclude=doc/*',
             \ '--exclude=docs/*', '--exclude=bin/*', '--exclude=ide/*'
             \ ]
-
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
