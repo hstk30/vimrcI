@@ -13,8 +13,8 @@ colorscheme PaperColor
 " hi! SignColumn term=standout ctermfg=178 ctermbg=248 guifg=Cyan guibg=Grey
 hi! SignColumn ctermfg=White ctermbg=22 guifg=#e0e0e0 guibg=#008000 gui=NONE
 
-hi! ALEErrorSign term=standout ctermfg=1 guifg=Red
-hi! ALEWarningSign term=standout ctermfg=11 guifg=Yellow
+hi! ALEErrorSign term=standout ctermfg=1 ctermbg=22 guifg=Red guibg=#008000
+hi! ALEWarningSign term=standout ctermfg=11 ctermbg=22 guifg=Yellow guibg=#008000
 
 " hi! Search guibg=black guifg=yellow ctermbg=yellow ctermfg=black
 " hi! Search term=reverse cterm=NONE ctermfg=231 ctermbg=24 
