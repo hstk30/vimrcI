@@ -33,10 +33,10 @@ Plug 'git@github.com:airblade/vim-gitgutter'
 " Lang
 Plug 'git@github.com:dense-analysis/ale'
 Plug 'git@github.com:ludovicchabant/vim-gutentags'
-Plug 'git@github.com:ycm-core/YouCompleteMe'
 Plug 'git@github.com:MarcWeber/vim-addon-mw-utils'
 Plug 'git@github.com:garbas/vim-snipmate'
 Plug 'git@github.com:honza/vim-snippets'
+Plug 'git@github.com:davidhalter/jedi-vim.git'
 
 Plug 'git@github.com:nvie/vim-flake8'
 Plug 'git@github.com:Vimjas/vim-python-pep8-indent'
@@ -219,47 +219,18 @@ let g:Lf_WildIgnore = {
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " 自动打开 quickfix window ，高度为 6
 let g:asyncrun_open = 6
-nnoremap <leader>ar :AsyncRun
+nnoremap <leader>ar :AsyncRun 
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => YouCompleteMe
+" => Jedi-vim
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-let g:ycm_show_diagnostics_ui=0
-let g:ycm_server_log_level='info'
-let g:ycm_min_num_identifier_candidate_chars=2
-let g:ycm_collect_identifiers_from_comments_and_strings=1
-let g:ycm_complete_in_strings=1
-let g:ycm_key_invoke_completion='<c-z>'
-set completeopt=menu,menuone
-let g:ycm_add_preview_to_completeopt=0
-
-nmap <leader>fw <Plug>(YCMFindSymbolInWorkspace)
-nmap <leader>fd <Plug>(YCMFindSymbolInDocument)
-nnoremap <leader>jd :YcmCompleter GoTo<CR>
-nnoremap <leader>jr :YcmCompleter GoToReferences<CR>
-nnoremap <leader>ji :YcmCompleter GoToImplementation<CR>
-nnoremap <leader>jd :YcmCompleter GoTo<CR>
-nnoremap <leader>jcr :YcmCompleter GoToCallers<CR>
-nnoremap <leader>jce :YcmCompleter GoToCallees<CR>
-
-nnoremap <leader>kd :YcmCompleter GetDoc<CR>
-
-let g:ycm_semantic_triggers =  {
-			\ 'c,cpp,python,java,go,erlang,perl': ['re!\w{3}'],
-			\ 'cs,lua,javascript': ['re!\w{3}'],
-			\ }
-
-let g:ycm_filetype_whitelist = {
-			\ "c":1,
-			\ "cpp":1,
-			\ "python":1,
-            \ "rust": 1,
-            \ "lua": 1,
-            \ "go": 1,
-            \ "asm": 1,
-			\ "sh":1,
-			\ "make":1,
-			\ "zsh":1,
-			\ }
+let g:jedi#goto_command = "<leader>jc"
+let g:jedi#goto_assignments_command = "<leader>ja"
+let g:jedi#goto_stubs_command = "<leader>js"
+let g:jedi#goto_definitions_command = "jd"
+let g:jedi#documentation_command = "K"
+let g:jedi#usages_command = "<leader>ju"
+let g:jedi#completions_command = "<C-Space>"
+let g:jedi#rename_command = "<leader>rn"
 
