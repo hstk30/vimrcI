@@ -1,4 +1,6 @@
-let mapleader=" "
+" PracticalVim Tip 49.
+let mapleader=","
+noremap \ ,
 
 " => universal ctags  https://github.com/universal-ctags/ctags
 " https://kulkarniamit.github.io/whatwhyhow/howto/use-vim-ctags.html
@@ -174,8 +176,9 @@ nmap g[ <c-t>
 " => Visual mode related
 """"""""""""""""""""""""""""""
 
-" 设置快捷键将选中文本块复制至系统剪贴板
-vnoremap <leader>y "+y
+" Vim’s plus register references the system clipboard
+map <leader>y "+y
+map <leader>p "+p
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Moving around, tabs, windows and buffers
@@ -193,13 +196,19 @@ map <leader>bd :Bclose<cr>:tabclose<cr>gT
 " Close all the buffers
 map <leader>ba :bufdo bd<cr>
 
-map <leader>l :bnext<cr>
-map <leader>h :bprevious<cr>
+nnoremap <silent> [b :bprevious<cr>
+nnoremap <silent> ]b :bnext<cr>
+nnoremap <silent> [B :bfirst<cr>
+nnoremap <silent> ]B :blast<cr>
 
 " Useful mappings for managing tabs
 map <leader>tn :tabnew<cr>
 map <leader>to :tabonly<cr>
 map <leader>tc :tabclose<cr>
+map [t :tprevious<cr>
+map ]t :tnext<cr>
+map [T :tfirst<cr>
+map ]T :tlast<cr>
 
 " <leader>+数字键 切换tab
 noremap <silent><leader>1 1gt<cr>
@@ -272,14 +281,8 @@ endif
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Spell checking
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Pressing ,ss will toggle and untoggle spell checking
-map <leader>ss :setlocal spell!<cr>
-
-" Shortcuts using <leader>
-map <leader>sn ]s
-map <leader>sp [s
-map <leader>sa zg
-map <leader>s? z=
+map [os :setlocal spell!<cr>
+map ]os :setlocal spell!<cr>
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Misc
@@ -294,7 +297,8 @@ map <leader>q :e ~/buffer<cr>
 map <leader>x :e ~/buffer.md<cr>
 
 " Toggle paste mode on and off
-map <leader>pp :setlocal paste!<cr>
+map [op :setlocal paste!<cr>
+map ]op :setlocal paste!<cr>
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""

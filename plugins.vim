@@ -127,6 +127,8 @@ let g:ale_lint_on_text_changed = 'normal'
 let g:ale_lint_on_insert_leave = 1
 let g:airline#extensions#ale#enabled = 1
 
+let g:ale_python_flake8_options = '--config=$HOME/.vim/vimrcI/conf/flake8.conf'
+
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Git gutter (Git diff)
