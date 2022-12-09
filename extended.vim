@@ -34,18 +34,6 @@ endtry
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => Command mode related
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Bash like keys for the command line
-cnoremap <C-A>		<Home>
-cnoremap <C-E>		<End>
-cnoremap <C-K>		<C-U>
-
-cnoremap <C-P> <Up>
-cnoremap <C-N> <Down>
-
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => General abbreviations
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 iab xdate <C-r>=strftime("%d/%m/%y %H:%M:%S")<cr>
@@ -63,27 +51,6 @@ autocmd FileType css set omnifunc=csscomplete#CompleteCSS
 if executable('ag')
   let g:ackprg = 'ag --vimgrep --smart-case'
 endif
-
-" Ack the selected text
-vnoremap <leader>gv :call VisualSelection('gv', '')<CR>
-
-" Open Ack and put the cursor in the right position
-map <leader>gg :Ack 
-
-" When you press <leader>r you can search and replace the selected text
-vnoremap <silent> <leader>r :call VisualSelection('replace', '')<CR>
-
-" search for the text we want, and store the search pattern,
-" then yank the replace text to default reg 0, 
-" final press <leader>sp add flag
-nnoremap <leader>sp :%s//\=@0/g
-
-" count the matches for the current patten
-nnoremap <leader>cn :%s///gn<CR>
-
-" Practical Vim tip 86: search for the current visual selection
-xnoremap * :<C-u>call <SID>VSetSearch()<CR>/<C-R>=@/<CR><CR> 
-xnoremap # :<C-u>call <SID>VSetSearch()<CR>?<C-R>=@/<CR><CR>
 
 function! s:VSetSearch()
     let temp = @s
