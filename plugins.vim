@@ -17,7 +17,8 @@ Plug 'git@github.com:nathanaelkane/vim-indent-guides'
 Plug 'git@github.com:editorconfig/editorconfig-vim'
 Plug 'git@github.com:preservim/tagbar'
 Plug 'git@github.com:skywind3000/asyncrun.vim'
-" Plug 'git@github.com:MarcWeber/vim-addon-mw-utils'
+Plug 'git@github.com:MarcWeber/vim-addon-mw-utils'
+Plug 'git@github.com:roman/golden-ratio.git'
 " Plug 'git@github.com:sophacles/vim-bundle-mako'
 " Plug 'git@github.com:michaeljsmith/vim-indent-object'
 
@@ -34,7 +35,6 @@ Plug 'git@github.com:airblade/vim-gitgutter'
 Plug 'git@github.com:dense-analysis/ale'
 Plug 'git@github.com:ludovicchabant/vim-gutentags'
 Plug 'git@github.com:ycm-core/YouCompleteMe'
-Plug 'git@github.com:MarcWeber/vim-addon-mw-utils'
 Plug 'git@github.com:garbas/vim-snipmate'
 Plug 'git@github.com:honza/vim-snippets'
 
@@ -55,8 +55,8 @@ call plug#end()
 """"""""""""""""""""""""""""""
 " => snipMate support <CTRL-j>
 """"""""""""""""""""""""""""""
-ino <C-j> <C-r>=snipMate#TriggerSnippet()<cr>
-snor <C-j> <esc>i<right><C-r>=snipMate#TriggerSnippet()<cr>
+ino <C-j> <C-r>=snipMate#TriggerSnippet()<CR>
+snor <C-j> <esc>i<right><C-r>=snipMate#TriggerSnippet()<CR>
 let g:snipMate = { 'snippet_version' : 1 }
 
 
@@ -67,9 +67,9 @@ let g:NERDTreeWinPos = "right"
 let NERDTreeShowHidden=0
 let NERDTreeIgnore = ['\.pyc$', '__pycache__', '\.log$', '\.o$']
 let g:NERDTreeWinSize=30
-map <leader>nn :NERDTreeToggle<cr>
+map <leader>nn :NERDTreeToggle<CR>
 map <leader>nb :NERDTreeFromBookmark<Space>
-map <leader>nf :NERDTreeFind<cr>
+map <leader>nf :NERDTreeFind<CR>
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -113,7 +113,7 @@ let g:ale_fixers = {
 
 let g:ale_c_gcc_options = '-Wall -std=c89'
 nmap <silent> <leader>a <Plug>(ale_next_wrap)
-nnoremap <leader>ld :ALEDetail<cr>
+nnoremap <leader>ld :ALEDetail<CR>
 
 " Disabling highlighting
 let g:ale_set_highlights = 0
@@ -134,7 +134,7 @@ let g:ale_python_flake8_options = '--config=$HOME/.vim/vimrcI/conf/flake8.conf'
 " => Git gutter (Git diff)
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let g:gitgutter_enabled=0
-nnoremap <silent> <leader>df :GitGutterToggle<cr>
+nnoremap <silent> <leader>df :GitGutterToggle<CR>
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -264,4 +264,8 @@ let g:ycm_filetype_whitelist = {
 			\ "make":1,
 			\ "zsh":1,
 			\ }
+
+" => golden-ratio
+let g:golden_ratio_autocommand = 0
+nnoremap <leader>gr <Plug>(golden_ratio_resize)
 

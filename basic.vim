@@ -10,10 +10,11 @@ set tags=./.tags;,.tags
 filetype plugin on
 filetype indent on
 
-set history=100
+set history=200
 
 set autoread
-au FocusGained,BufEnter * checktime
+" vim q: e11: invalid in command-line window; <cr> executes, ctrl-c quits: checktime
+au FocusGained * checktime
 
 " 上下移动时，保留的最少行数
 set scrolloff=7
@@ -29,6 +30,7 @@ source $VIMRUNTIME/menu.vim
 
 " Turn on the Wild menu
 set wildmenu
+set wildmode=full
 
 "----------------------------------------------------------------------
 " 文件搜索和补全时忽略下面扩展名
@@ -77,7 +79,7 @@ set smartcase
 set hlsearch
 
 " Disable highlight 
-map <silent> <leader>/ :noh<cr>
+nnoremap <leader>/ :nohlsearch<CR>
 
 " Makes search act like search in modern browsers
 set incsearch
@@ -113,9 +115,6 @@ set showtabline=2
 set foldcolumn=1
 
 
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => Colors and Fonts
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Enable syntax highlighting
 syntax enable
 
@@ -139,18 +138,12 @@ set encoding=utf8
 set ffs=unix,dos,mac
 
 
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => Files, backups and undo
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Turn backup off, since most stuff is in SVN, git etc. anyway...
 set nobackup
 set nowb
 set noswapfile
 
 
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => Text, tab and indent related
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Use spaces instead of tabs
 set expandtab
 
@@ -162,27 +155,18 @@ set shiftwidth=4
 set tabstop=4
 
 " Linebreak on 500 characters
-set lbr
-set tw=500
+set linebreak
+set textwidth=500
 
-set ai "Auto indent
-set si "Smart indent
+set autoindent 
+set smartindent
 set wrap "Wrap lines
-
-" Jump back up in the tag stack
-nmap g[ <c-t>
-
-""""""""""""""""""""""""""""""
-" => Visual mode related
-""""""""""""""""""""""""""""""
 
 " Vim’s plus register references the system clipboard
 map <leader>y "+y
+map <leader>Y "+Y
 map <leader>p "+p
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => Moving around, tabs, windows and buffers
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+map <leader>P "+P
 
 " Smart way to move between windows
 map <C-j> <C-W>j
@@ -191,36 +175,36 @@ map <C-h> <C-W>h
 map <C-l> <C-W>l
 
 " Close the current buffer
-map <leader>bd :Bclose<cr>:tabclose<cr>gT
+map <leader>bd :Bclose<CR>:tabclose<CR>gT
 
 " Close all the buffers
-map <leader>ba :bufdo bd<cr>
+map <leader>ba :bufdo bd<CR>
 
-nnoremap <silent> [b :bprevious<cr>
-nnoremap <silent> ]b :bnext<cr>
-nnoremap <silent> [B :bfirst<cr>
-nnoremap <silent> ]B :blast<cr>
+nnoremap <silent> [b :bprevious<CR>
+nnoremap <silent> ]b :bnext<CR>
+nnoremap <silent> [B :bfirst<CR>
+nnoremap <silent> ]B :blast<CR>
 
 " Useful mappings for managing tabs
-map <leader>tn :tabnew<cr>
-map <leader>to :tabonly<cr>
-map <leader>tc :tabclose<cr>
-map [t :tprevious<cr>
-map ]t :tnext<cr>
-map [T :tfirst<cr>
-map ]T :tlast<cr>
+map <leader>tn :tabnew<CR>
+map <leader>to :tabonly<CR>
+map <leader>tc :tabclose<CR>
+map [t :tprevious<CR>
+map ]t :tnext<CR>
+map [T :tfirst<CR>
+map ]T :tlast<CR>
 
 " <leader>+数字键 切换tab
-noremap <silent><leader>1 1gt<cr>
-noremap <silent><leader>2 2gt<cr>
-noremap <silent><leader>3 3gt<cr>
-noremap <silent><leader>4 4gt<cr>
-noremap <silent><leader>5 5gt<cr>
-noremap <silent><leader>6 6gt<cr>
-noremap <silent><leader>7 7gt<cr>
-noremap <silent><leader>8 8gt<cr>
-noremap <silent><leader>9 9gt<cr>
-noremap <silent><leader>0 10gt<cr>
+noremap <silent><leader>1 1gt<CR>
+noremap <silent><leader>2 2gt<CR>
+noremap <silent><leader>3 3gt<CR>
+noremap <silent><leader>4 4gt<CR>
+noremap <silent><leader>5 5gt<CR>
+noremap <silent><leader>6 6gt<CR>
+noremap <silent><leader>7 7gt<CR>
+noremap <silent><leader>8 8gt<CR>
+noremap <silent><leader>9 9gt<CR>
+noremap <silent><leader>0 10gt<CR>
 
 " Let 'tl' toggle between this and the last accessed tab
 let g:lasttab = 1
@@ -228,10 +212,10 @@ nmap <Leader>tl :exe "tabn ".g:lasttab<CR>
 au TabLeave * let g:lasttab = tabpagenr()
 
 " Opens a new tab with the current buffer's path
-map <leader>te :tabedit <C-r>=expand("%:p:h")<cr>/
+map <leader>te :tabedit <C-r>=expand("%:p:h")<CR>/
 
 " Switch CWD to the directory of the open buffer
-map <leader>cd :cd %:p:h<cr>:pwd<cr>
+map <leader>cd :cd %:p:h<CR>:pwd<CR>
 
 " Specify the behavior when switching between buffers
 try
@@ -244,9 +228,6 @@ endtry
 au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
 
 
-""""""""""""""""""""""""""""""
-" => Status line
-""""""""""""""""""""""""""""""
 " Always show the status line
 set laststatus=2
 
@@ -254,16 +235,13 @@ set laststatus=2
 set statusline=\ %{HasPaste()}%F%m%r%h\ %w\ \ CWD:\ %r%{getcwd()}%h\ \ \ Line:\ %l\ \ Column:\ %c
 
 
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => Editing mappings
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Remap VIM 0 to first non-blank character
 map 0 ^
 
-nnoremap dj :m .+1<CR>==
-nnoremap dk :m .-2<CR>==
-vnoremap dj :m '>+1<CR>gv=gv
-vnoremap dk :m '<-2<CR>gv=gv
+nnoremap dj :move .+1<CR>==
+nnoremap dk :move .-2<CR>==
+vnoremap dj :move '>+1<CR>gv=gv
+vnoremap dk :move '<-2<CR>gv=gv
 
 " Delete trailing white space on save, useful for some filetypes ;)
 fun! CleanExtraSpaces()
@@ -278,32 +256,35 @@ if has("autocmd")
     autocmd BufWritePre *.txt,*.py,*.sh,*.c,*.rs :call CleanExtraSpaces()
 endif
 
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => Spell checking
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-map [os :setlocal spell!<cr>
-map ]os :setlocal spell!<cr>
+" Spell checking
+map [os :setlocal spell!<CR>
+map ]os :setlocal spell!<CR>
 
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => Misc
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" quickfix-window
+map [oq :copen<CR>
+map ]oq :cclose<CR> 
+" map <leader>co ggVGy:tabnew<CR>:set syntax=qf<CR>pgg
+map [q :cprevious<CR>
+map ]q :cnext<CR>
+map [Q :cfirst<CR>
+map ]Q :clast<CR>
+
+" Make sure that enter is never overriden in the quickfix window
+autocmd BufReadPost quickfix nnoremap <buffer> <CR> <CR>
+
 " Remove the Windows ^M - when the encodings gets messed up
-noremap <Leader>m mmHmt:%s/<C-V><cr>//ge<cr>'tzt'm
+noremap <Leader>m mmHmt:%s/<C-V><CR>//ge<CR>'tzt'm
 
 " Quickly open a buffer for scribble
-map <leader>q :e ~/buffer<cr>
+map <leader>q :e ~/buffer<CR>
 
 " Quickly open a markdown buffer for scribble
-map <leader>x :e ~/buffer.md<cr>
+map <leader>x :e ~/buffer.md<CR>
 
 " Toggle paste mode on and off
-map [op :setlocal paste!<cr>
-map ]op :setlocal paste!<cr>
+map [op :setlocal paste!<CR>
+map ]op :setlocal paste!<CR>
 
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => Helper functions
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Returns true if paste mode is enabled
 function! HasPaste()
     if &paste
@@ -353,3 +334,4 @@ function! VisualSelection(direction, extra_filter) range
     let @/ = l:pattern
     let @" = l:saved_reg
 endfunction
+

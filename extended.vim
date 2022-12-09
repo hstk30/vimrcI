@@ -50,12 +50,10 @@ cnoremap <C-N> <Down>
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 iab xdate <C-r>=strftime("%d/%m/%y %H:%M:%S")<cr>
 
-
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Omni complete functions
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 autocmd FileType css set omnifunc=csscomplete#CompleteCSS
-
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Ack searching and cope displaying
@@ -66,26 +64,33 @@ if executable('ag')
   let g:ackprg = 'ag --vimgrep --smart-case'
 endif
 
-" When you press gv you Ack after the selected text
-vnoremap <silent> gv :call VisualSelection('gv', '')<CR>
+" Ack the selected text
+vnoremap <leader>gv :call VisualSelection('gv', '')<CR>
 
 " Open Ack and put the cursor in the right position
-map <leader>g :Ack 
+map <leader>gg :Ack 
 
 " When you press <leader>r you can search and replace the selected text
 vnoremap <silent> <leader>r :call VisualSelection('replace', '')<CR>
 
-map [oq :cope<cr>
-map ]oq :cclose<cr> 
-" map <leader>co ggVGy:tabnew<cr>:set syntax=qf<cr>pgg
-map [q :cprevious<cr>
-map ]q :cnext<cr>
-map [Q :cfirst<cr>
-map ]Q :clast<cr>
+" search for the text we want, and store the search pattern,
+" then yank the replace text to default reg 0, 
+" final press <leader>sp add flag
+nnoremap <leader>sp :%s//\=@0/g
 
-" Make sure that enter is never overriden in the quickfix window
-autocmd BufReadPost quickfix nnoremap <buffer> <CR> <CR>
+" count the matches for the current patten
+nnoremap <leader>cn :%s///gn<CR>
 
+" Practical Vim tip 86: search for the current visual selection
+xnoremap * :<C-u>call <SID>VSetSearch()<CR>/<C-R>=@/<CR><CR> 
+xnoremap # :<C-u>call <SID>VSetSearch()<CR>?<C-R>=@/<CR><CR>
+
+function! s:VSetSearch()
+    let temp = @s
+    norm! gv"sy
+    let @/ = '\V' . substitute(escape(@s, '/\'), '\n', '\\n', 'g') 
+    let @s = temp
+endfunction
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Helper functions
