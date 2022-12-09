@@ -52,37 +52,3 @@ if executable('ag')
   let g:ackprg = 'ag --vimgrep --smart-case'
 endif
 
-function! s:VSetSearch()
-    let temp = @s
-    norm! gv"sy
-    let @/ = '\V' . substitute(escape(@s, '/\'), '\n', '\\n', 'g') 
-    let @s = temp
-endfunction
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => Helper functions
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-func! DeleteTillSlash()
-    let g:cmd = getcmdline()
-
-    if has("win16") || has("win32")
-        let g:cmd_edited = substitute(g:cmd, "\\(.*\[\\\\]\\).*", "\\1", "")
-    else
-        let g:cmd_edited = substitute(g:cmd, "\\(.*\[/\]\\).*", "\\1", "")
-    endif
-
-    if g:cmd == g:cmd_edited
-        if has("win16") || has("win32")
-            let g:cmd_edited = substitute(g:cmd, "\\(.*\[\\\\\]\\).*\[\\\\\]", "\\1", "")
-        else
-            let g:cmd_edited = substitute(g:cmd, "\\(.*\[/\]\\).*/", "\\1", "")
-        endif
-    endif   
-
-    return g:cmd_edited
-endfunc
-
-func! CurrentFileDir(cmd)
-    return a:cmd . " " . expand("%:p:h") . "/"
-endfunc
-

@@ -16,18 +16,6 @@ hi! SignColumn ctermfg=White ctermbg=22 guifg=#e0e0e0 guibg=#008000 gui=NONE
 hi! ALEErrorSign term=standout ctermfg=1 ctermbg=22 guifg=Red guibg=#008000
 hi! ALEWarningSign term=standout ctermfg=11 ctermbg=22 guifg=Yellow guibg=#008000
 
-" hi! Search guibg=black guifg=yellow ctermbg=yellow ctermfg=black
-" hi! Search term=reverse cterm=NONE ctermfg=231 ctermbg=24 
-"             \ gui=NONE guifg=#f8f8f2 guibg=#204a87
-" hi! IncSearch term=reverse cterm=reverse ctermfg=193 
-"             \ ctermbg=16 gui=reverse guifg=#c4be89 guibg=#000000
-
-" hi! FoldColumn guibg=NONE ctermbg=NONE
-
-" " 修正补全目录的色彩：默认太难看
-" hi! Pmenu guibg=gray guifg=black ctermbg=gray ctermfg=black
-" hi! PmenuSel guibg=gray guifg=brown ctermbg=brown ctermfg=gray
-
 " 更清晰的错误标注：默认一片红色背景，语法高亮都被搞没了
 " 只显示红色或者蓝色下划线或者波浪线
 hi! clear SpellBad

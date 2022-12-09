@@ -58,10 +58,7 @@ map <leader>te :tabedit <C-r>=expand("%:p:h")<CR>/
 " Switch CWD to the directory of the open buffer
 map <leader>cd :cd %:p:h<CR>:pwd<CR>
 
-
-" Remap VIM 0 to first non-blank character
-map 0 ^
-
+" switch adjacent line
 nnoremap dj :move .+1<CR>==
 nnoremap dk :move .-2<CR>==
 vnoremap dj :move '>+1<CR>gv=gv
@@ -104,7 +101,12 @@ cnoremap <C-K>		<C-U>
 cnoremap <C-P> <Up>
 cnoremap <C-N> <Down>
 
-imap <C-E> <End>
+" Bash like keys for insert line
+inoremap <c-A> <Home>
+inoremap <C-E> <End>
+
+" Remap VIM 0 to first non-blank character
+map 0 ^
 
 " Ack the selected text
 vnoremap <leader>gv :call VisualSelection('gv', '')<CR>
@@ -126,3 +128,28 @@ nnoremap <leader>cn :%s///gn<CR>
 " Practical Vim tip 86: search for the current visual selection
 xnoremap * :<C-u>call <SID>VSetSearch()<CR>/<C-R>=@/<CR><CR> 
 xnoremap # :<C-u>call <SID>VSetSearch()<CR>?<C-R>=@/<CR><CR>
+
+function! VisualSelection(direction, extra_filter) range
+    let l:saved_reg = @"
+    execute "normal! vgvy"
+
+    let l:pattern = escape(@", "\\/.*'$^~[]")
+    let l:pattern = substitute(l:pattern, "\n$", "", "")
+
+    if a:direction == 'gv'
+        call CmdLine("Ack '" . l:pattern . "' " )
+    elseif a:direction == 'replace'
+        call CmdLine("%s" . '/'. l:pattern . '/')
+    endif
+
+    let @/ = l:pattern
+    let @" = l:saved_reg
+endfunction
+
+function! s:VSetSearch()
+    let temp = @s
+    norm! gv"sy
+    let @/ = '\V' . substitute(escape(@s, '/\'), '\n', '\\n', 'g') 
+    let @s = temp
+endfunction
+

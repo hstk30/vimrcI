@@ -174,6 +174,10 @@ set laststatus=2
 " Format the status line
 set statusline=\ %{HasPaste()}%F%m%r%h\ %w\ \ CWD:\ %r%{getcwd()}%h\ \ \ Line:\ %l\ \ Column:\ %c
 
+if has("autocmd")
+    autocmd BufWritePre *.txt,*.py,*.sh,*.c,*.rs :call CleanExtraSpaces()
+endif
+
 " Delete trailing white space on save, useful for some filetypes ;)
 fun! CleanExtraSpaces()
     let save_cursor = getpos(".")
@@ -182,10 +186,6 @@ fun! CleanExtraSpaces()
     call setpos('.', save_cursor)
     call setreg('/', old_query)
 endfun
-
-if has("autocmd")
-    autocmd BufWritePre *.txt,*.py,*.sh,*.c,*.rs :call CleanExtraSpaces()
-endif
 
 " Returns true if paste mode is enabled
 function! HasPaste()
@@ -218,22 +218,5 @@ endfunction
 
 function! CmdLine(str)
     call feedkeys(":" . a:str)
-endfunction
-
-function! VisualSelection(direction, extra_filter) range
-    let l:saved_reg = @"
-    execute "normal! vgvy"
-
-    let l:pattern = escape(@", "\\/.*'$^~[]")
-    let l:pattern = substitute(l:pattern, "\n$", "", "")
-
-    if a:direction == 'gv'
-        call CmdLine("Ack '" . l:pattern . "' " )
-    elseif a:direction == 'replace'
-        call CmdLine("%s" . '/'. l:pattern . '/')
-    endif
-
-    let @/ = l:pattern
-    let @" = l:saved_reg
 endfunction
 
