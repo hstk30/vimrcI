@@ -269,3 +269,42 @@ let g:ycm_filetype_whitelist = {
 let g:golden_ratio_autocommand = 0
 nnoremap <leader>gr <Plug>(golden_ratio_resize)
 
+" => ack
+command! -nargs=* Search call WrapAck(<f-args>)
+
+" Use Ack to search
+nnoremap <leader>ss :Search 
+
+" Ack the selected text
+vnoremap <leader>sv :call VSearch()<CR>
+
+function! WrapAck(...) 
+    " [Search results leak into terminal](https://github.com/mileszs/ack.vim/issues/18)
+    let l:string = @/
+    if a:0 == 0
+        " for the last-pattern is 'iskeyword', throw the boundary
+        if l:string[0:1] == '\<' && l:string[-2:] == '\>'
+            let l:string = l:string[2:-3]
+        endif
+    elseif a:0 == 1
+        let l:string = a:1
+    else
+        echoerr "Too many arguments"
+    endif
+
+    let saved_shellpipe = &shellpipe
+    let &shellpipe = '>'
+    try
+        execute 'Ack!' shellescape(l:string, 1)
+    finally
+        let &shellpipe = saved_shellpipe
+    endtry
+endfunction
+
+function! VSearch()
+    let l:temp = @s
+    norm! gv"sy
+
+    call WrapAck(@s)
+    let @s = temp
+endfunction

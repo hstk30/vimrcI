@@ -1,6 +1,4 @@
 " => universal ctags  https://github.com/universal-ctags/ctags
-" https://kulkarniamit.github.io/whatwhyhow/howto/use-vim-ctags.html
-" my ctags options: ~/.ctags.d/common.ctags
 set tags=./.tags;,.tags
 
 filetype plugin on
@@ -126,16 +124,16 @@ endif
 
 " Set utf8 as standard encoding and en_US as the standard language
 set encoding=utf8
+" spell check ignore Chinese
+set spelllang=en_us,cjk
 
 " Use Unix as the standard file type
 set ffs=unix,dos,mac
-
 
 " Turn backup off, since most stuff is in SVN, git etc. anyway...
 set nobackup
 set nowb
 set noswapfile
-
 
 " Use spaces instead of tabs
 set expandtab
@@ -214,9 +212,5 @@ function! <SID>BufcloseCloseIt()
     if buflisted(l:currentBufNum)
         execute("bdelete! ".l:currentBufNum)
     endif
-endfunction
-
-function! CmdLine(str)
-    call feedkeys(":" . a:str)
 endfunction
 
