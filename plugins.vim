@@ -132,8 +132,8 @@ let g:ale_python_flake8_options = '--config=$HOME/.vim/vimrcI/conf/flake8.conf'
 set updatetime=100
 let g:gitgutter_enabled=0
 nnoremap <leader>df :GitGutterToggle<CR>:GitGutterLineHighlightsToggle<CR>
-nmap [c <Plug>(GitGutterPrevHunk)]
-nmap ]c <Plug>(GitGutterNextHunk)
+nmap [h <Plug>(GitGutterPrevHunk)]
+nmap ]h <Plug>(GitGutterNextHunk)
 nmap <leader>cp <Plug>(GitGutterPreviewHunk)
 nmap <leader>cs <Plug>(GitGutterStageHunk)
 nmap <leader>cu <Plug>(GitGutterUndoHunk)
@@ -147,6 +147,7 @@ let g:EditorConfig_exclude_patterns = ['fugitive://.*']
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Fugitive
+" => rhubarb
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Copy the link to the line of a Git repository to the clipboard
 nnoremap <leader>v :.GBrowse!<CR>

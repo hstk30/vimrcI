@@ -74,7 +74,7 @@ xnoremap # :<C-u>call <SID>VSetSearch()<CR>?<C-R>=@/<CR><CR>
 "   - Special keystroke: `<C-d>` `<C-i>` `<MiddleMouse>`
 "   - Alphabet keystroke: `DIPcdfimpsz`
 "   - Punctuation marks: `#'(*\`/{`
-" **Customized**: `bBtTqQ<C-q>lLeEc`
+" **Customized**: `bBtTqQ<C-q>lLeEh`
 " highlight 
 nnoremap <silent> [oh :hlsearch<CR>
 nnoremap <silent> ]oh :nohlsearch<CR>
