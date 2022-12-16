@@ -1,6 +1,5 @@
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => GUI related
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" spell check ignore Chinese
+set spelllang=en_us,cjk
 
 " Set font according to system
 if has("mac") || has("macunix")

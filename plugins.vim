@@ -52,25 +52,15 @@ Plug 'git@github.com:chr4/nginx.vim'
 call plug#end()
 
 
+" => vim-indent-guides
+nnoremap <leader>ti <Plug>IndentGuidesToggle
+
 """"""""""""""""""""""""""""""
 " => snipMate support <CTRL-j>
 """"""""""""""""""""""""""""""
 ino <C-j> <C-r>=snipMate#TriggerSnippet()<CR>
 snor <C-j> <esc>i<right><C-r>=snipMate#TriggerSnippet()<CR>
 let g:snipMate = { 'snippet_version' : 1 }
-
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => Nerd Tree
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-let g:NERDTreeWinPos = "right"
-let NERDTreeShowHidden=0
-let NERDTreeIgnore = ['\.pyc$', '__pycache__', '\.log$', '\.o$']
-let g:NERDTreeWinSize=30
-map <leader>nn :NERDTreeToggle<CR>
-map <leader>nb :NERDTreeFromBookmark<Space>
-map <leader>nf :NERDTreeFind<CR>
-
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => lightline
@@ -112,8 +102,14 @@ let g:ale_fixers = {
 \}
 
 let g:ale_c_gcc_options = '-Wall -std=c89'
-nmap <silent> <leader>a <Plug>(ale_next_wrap)
-nnoremap <leader>ld :ALEDetail<CR>
+nnoremap  <silent> [e <Plug>(ale_previous_wrap)
+nnoremap  <silent> ]e <Plug>(ale_next_wrap)
+nnoremap  <silent> [E <Plug>(ale_previous)
+nnoremap  <silent> ]E <Plug>(ale_next)
+nnoremap  <silent> [<C-e> <Plug>(ale_first)
+nnoremap  <silent> ]<C-e> <Plug>(ale_last)
+
+nnoremap <leader>dl :ALEDetail<CR>
 
 " Disabling highlighting
 let g:ale_set_highlights = 0
@@ -133,9 +129,15 @@ let g:ale_python_flake8_options = '--config=$HOME/.vim/vimrcI/conf/flake8.conf'
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Git gutter (Git diff)
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+set updatetime=100
 let g:gitgutter_enabled=0
-nnoremap <silent> <leader>df :GitGutterToggle<CR>
-
+nnoremap <leader>df :GitGutterToggle<CR>:GitGutterLineHighlightsToggle<CR>
+nmap [c <Plug>(GitGutterPrevHunk)]
+nmap ]c <Plug>(GitGutterNextHunk)
+nmap <leader>cp <Plug>(GitGutterPreviewHunk)
+nmap <leader>cs <Plug>(GitGutterStageHunk)
+nmap <leader>cu <Plug>(GitGutterUndoHunk)
+xmap <leader>cs <Plug>(GitGutterStageHunk)
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => EditorConfig (project-specific EditorConfig rule)
@@ -149,12 +151,14 @@ let g:EditorConfig_exclude_patterns = ['fugitive://.*']
 " Copy the link to the line of a Git repository to the clipboard
 nnoremap <leader>v :.GBrowse!<CR>
 xnoremap <leader>v :'<'>GBrowse!<CR>
+nnoremap <leader>gb :Git blame<CR>
+nnoremap <leader>gf :Git diff<CR>
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Tagbar
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-nmap <F8> :TagbarToggle<CR>
+nnoremap  <F8> :TagbarToggle<CR>
 let g:tagbar_ctags_bin = '/opt/homebrew/bin/ctags'
 
 
@@ -186,6 +190,18 @@ let g:gutentags_ctags_extra_args += [
             \ '--exclude=\*.md', '--exclude=\*.markdown', '--exclude=doc/*',
             \ '--exclude=docs/*', '--exclude=bin/*', '--exclude=ide/*'
             \ ]
+
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => Nerd Tree
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+let g:NERDTreeWinPos = "left"
+let NERDTreeShowHidden=0
+let NERDTreeIgnore = ['\.pyc$', '__pycache__', '\.log$', '\.o$']
+let g:NERDTreeWinSize=30
+nnoremap  <leader>nn :NERDTreeToggle<CR>
+nnoremap  <leader>nb :NERDTreeFromBookmark<Space>
+nnoremap  <leader>nf :NERDTreeFind<CR>
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -236,16 +252,16 @@ let g:ycm_key_invoke_completion='<c-z>'
 set completeopt=menu,menuone
 let g:ycm_add_preview_to_completeopt=0
 
-nmap <leader>fw <Plug>(YCMFindSymbolInWorkspace)
-nmap <leader>fd <Plug>(YCMFindSymbolInDocument)
-nnoremap <leader>jd :YcmCompleter GoTo<CR>
-nnoremap <leader>jr :YcmCompleter GoToReferences<CR>
-nnoremap <leader>ji :YcmCompleter GoToImplementation<CR>
-nnoremap <leader>jd :YcmCompleter GoTo<CR>
-nnoremap <leader>jcr :YcmCompleter GoToCallers<CR>
-nnoremap <leader>jce :YcmCompleter GoToCallees<CR>
+nnoremap <leader>sw <Plug>(YCMFindSymbolInWorkspace)
+nnoremap <leader>sd <Plug>(YCMFindSymbolInDocument)
+nnoremap <leader>gd :YcmCompleter GoTo<CR>
+nnoremap <leader>gr :YcmCompleter GoToReferences<CR>
+nnoremap <leader>gi :YcmCompleter GoToImplementation<CR>
+nnoremap <leader>gd :YcmCompleter GoTo<CR>
+nnoremap <leader>gcr :YcmCompleter GoToCallers<CR>
+nnoremap <leader>gce :YcmCompleter GoToCallees<CR>
 
-nnoremap <leader>kd :YcmCompleter GetDoc<CR>
+nnoremap <leader>gk :YcmCompleter GetDoc<CR>
 
 let g:ycm_semantic_triggers =  {
 			\ 'c,cpp,python,java,go,erlang,perl': ['re!\w{3}'],
