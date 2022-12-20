@@ -21,6 +21,7 @@ Plug 'git@github.com:MarcWeber/vim-addon-mw-utils'
 Plug 'git@github.com:roman/golden-ratio.git'
 " Plug 'git@github.com:sophacles/vim-bundle-mako'
 " Plug 'git@github.com:michaeljsmith/vim-indent-object'
+Plug 'git@github.com:machakann/vim-highlightedyank.git'
 
 " Status Line
 Plug 'git@github.com:itchyny/lightline.vim'
@@ -132,8 +133,8 @@ let g:ale_python_flake8_options = '--config=$HOME/.vim/vimrcI/conf/flake8.conf'
 set updatetime=100
 let g:gitgutter_enabled=0
 nnoremap <leader>df :GitGutterToggle<CR>:GitGutterLineHighlightsToggle<CR>
-nmap [h <Plug>(GitGutterPrevHunk)]
-nmap ]h <Plug>(GitGutterNextHunk)
+nmap [c <Plug>(GitGutterPrevHunk)]
+nmap ]c <Plug>(GitGutterNextHunk)
 nmap <leader>cp <Plug>(GitGutterPreviewHunk)
 nmap <leader>cs <Plug>(GitGutterStageHunk)
 nmap <leader>cu <Plug>(GitGutterUndoHunk)
@@ -282,6 +283,13 @@ let g:ycm_filetype_whitelist = {
 			\ "zsh":1,
 			\ }
 
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => vim-markdown
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+let vim_markdown_folding_disabled = 1
+set conceallevel=2
+
 " => golden-ratio
 let g:golden_ratio_autocommand = 0
 nnoremap <leader>gr <Plug>(golden_ratio_resize)
@@ -290,7 +298,7 @@ nnoremap <leader>gr <Plug>(golden_ratio_resize)
 command! -nargs=* Search call WrapAck(<f-args>)
 
 " Use Ack to search
-nnoremap <leader>ss :Search 
+noremap <leader>ss :Search 
 
 " Ack the selected text
 vnoremap <leader>sv :call VSearch()<CR>

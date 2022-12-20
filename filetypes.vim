@@ -30,8 +30,3 @@ if &term =~ '256color' && $TMUX != ''
 	set t_ut=
 endif
 
-""""""""""""""""""""""""""""""
-" => Markdown
-""""""""""""""""""""""""""""""
-let vim_markdown_folding_disabled = 1
-

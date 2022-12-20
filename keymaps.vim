@@ -79,6 +79,12 @@ xnoremap # :<C-u>call <SID>VSetSearch()<CR>?<C-R>=@/<CR><CR>
 nnoremap <silent> [oh :hlsearch<CR>
 nnoremap <silent> ]oh :nohlsearch<CR>
 
+" argument-list
+nnoremap <silent> [a :prev<CR>
+nnoremap <silent> ]a :next<CR>
+nnoremap <silent> [A :first<CR>
+nnoremap <silent> ]a :last<CR>
+
 " buffer
 nnoremap <silent> [b :bprevious<CR>
 nnoremap <silent> ]b :bnext<CR>
