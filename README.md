@@ -148,8 +148,8 @@ noremap \ ,
 
 ### [vim-unimpaired](https://github.com/tpope/vim-unimpaired) 的继承和扩展
 
-| 按键 | 模式 ｜ 说明 |
-| :--: | -- | --- |
+| 按键 | 模式 | 说明 |
+| :--: | --- | --- |
 | `[oh` | `N` | 高亮搜索开启 |
 | `]oh` | `N` | 高亮搜索关闭 |
 | `[os` | `N` | 拼写纠错开启 |
@@ -162,3 +162,4 @@ noremap \ ,
 
 - `<leader>cn` -- `N` -- 统计 last pattern 匹配的数量
 - `<leader>sy` -- `N` -- 分步替换，先 **search** 被替换的文本，再 **yank** 要替换的文本，再执行这个命令进行替换
+
