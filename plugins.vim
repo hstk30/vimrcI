@@ -4,6 +4,11 @@ call plug#begin()
 Plug 'git@github.com:mileszs/ack.vim'
 Plug 'git@github.com:Yggdroot/LeaderF'
 
+" unknow
+" Plug 'git@github.com:tomtom/tlib_vim'
+" Plug 'git@github.com:editorconfig/editorconfig-vim'
+" Plug 'git@github.com:MarcWeber/vim-addon-mw-utils'
+
 " Auxiliary
 Plug 'git@github.com:tpope/vim-surround'
 Plug 'git@github.com:tpope/vim-repeat'
@@ -11,15 +16,11 @@ Plug 'git@github.com:tpope/vim-commentary'
 Plug 'git@github.com:tpope/vim-abolish'
 Plug 'git@github.com:jiangmiao/auto-pairs'
 Plug 'git@github.com:preservim/nerdtree'
-Plug 'git@github.com:tomtom/tlib_vim'
 Plug 'git@github.com:terryma/vim-expand-region'
 Plug 'git@github.com:nathanaelkane/vim-indent-guides'
-Plug 'git@github.com:editorconfig/editorconfig-vim'
-Plug 'git@github.com:preservim/tagbar'
+
 Plug 'git@github.com:skywind3000/asyncrun.vim'
-Plug 'git@github.com:MarcWeber/vim-addon-mw-utils'
 Plug 'git@github.com:roman/golden-ratio.git'
-" Plug 'git@github.com:sophacles/vim-bundle-mako'
 " Plug 'git@github.com:michaeljsmith/vim-indent-object'
 Plug 'git@github.com:machakann/vim-highlightedyank.git'
 
@@ -33,11 +34,13 @@ Plug 'git@github.com:tpope/vim-fugitive'
 Plug 'git@github.com:airblade/vim-gitgutter'
 
 " Lang
+Plug 'git@github.com:preservim/tagbar'
 Plug 'git@github.com:dense-analysis/ale'
 Plug 'git@github.com:ludovicchabant/vim-gutentags'
+Plug 'git@github.com:hstk30/YCM-Generator.git'
 Plug 'git@github.com:ycm-core/YouCompleteMe'
-Plug 'git@github.com:garbas/vim-snipmate'
-Plug 'git@github.com:honza/vim-snippets'
+" Plug 'git@github.com:garbas/vim-snipmate'
+" Plug 'git@github.com:honza/vim-snippets'
 
 Plug 'git@github.com:nvie/vim-flake8'
 Plug 'git@github.com:Vimjas/vim-python-pep8-indent'
@@ -46,9 +49,8 @@ Plug 'git@github.com:plasticboy/vim-markdown'
 
 Plug 'git@github.com:rust-lang/rust.vim'
 
-Plug 'git@github.com:digitaltoad/vim-pug'
-
-Plug 'git@github.com:chr4/nginx.vim'
+" Plug 'git@github.com:digitaltoad/vim-pug'
+" Plug 'git@github.com:chr4/nginx.vim'
 
 call plug#end()
 
@@ -59,9 +61,9 @@ nnoremap <leader>ti <Plug>IndentGuidesToggle
 """"""""""""""""""""""""""""""
 " => snipMate support <CTRL-j>
 """"""""""""""""""""""""""""""
-ino <C-j> <C-r>=snipMate#TriggerSnippet()<CR>
-snor <C-j> <esc>i<right><C-r>=snipMate#TriggerSnippet()<CR>
-let g:snipMate = { 'snippet_version' : 1 }
+" ino <C-j> <C-r>=snipMate#TriggerSnippet()<CR>
+" snor <C-j> <esc>i<right><C-r>=snipMate#TriggerSnippet()<CR>
+" let g:snipMate = { 'snippet_version' : 1 }
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => lightline
@@ -105,10 +107,8 @@ let g:ale_fixers = {
 let g:ale_c_gcc_options = '-Wall -std=c89'
 nnoremap  <silent> [e <Plug>(ale_previous_wrap)
 nnoremap  <silent> ]e <Plug>(ale_next_wrap)
-nnoremap  <silent> [E <Plug>(ale_previous)
-nnoremap  <silent> ]E <Plug>(ale_next)
-nnoremap  <silent> [<C-e> <Plug>(ale_first)
-nnoremap  <silent> ]<C-e> <Plug>(ale_last)
+nnoremap  <silent> [E <Plug>(ale_first)
+nnoremap  <silent> ]E <Plug>(ale_last)
 
 nnoremap <leader>dl :ALEDetail<CR>
 
@@ -143,7 +143,7 @@ xmap <leader>cs <Plug>(GitGutterStageHunk)
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => EditorConfig (project-specific EditorConfig rule)
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-let g:EditorConfig_exclude_patterns = ['fugitive://.*']
+" let g:EditorConfig_exclude_patterns = ['fugitive://.*']
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -160,8 +160,8 @@ nnoremap <leader>gf :Git diff<CR>
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Tagbar
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-nnoremap  <F8> :TagbarToggle<CR>
-let g:tagbar_ctags_bin = '/opt/homebrew/bin/ctags'
+" nnoremap  <F8> :TagbarToggle<CR>
+" let g:tagbar_ctags_bin = '/opt/homebrew/bin/ctags'
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -239,7 +239,7 @@ let g:Lf_WildIgnore = {
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " 自动打开 quickfix window ，高度为 6
 let g:asyncrun_open = 6
-nnoremap <leader>ar :AsyncRun
+nnoremap <leader>ar :AsyncRun 
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -259,7 +259,6 @@ nnoremap <leader>sd <Plug>(YCMFindSymbolInDocument)
 nnoremap <leader>gd :YcmCompleter GoTo<CR>
 nnoremap <leader>gr :YcmCompleter GoToReferences<CR>
 nnoremap <leader>gi :YcmCompleter GoToImplementation<CR>
-nnoremap <leader>gd :YcmCompleter GoTo<CR>
 nnoremap <leader>gcr :YcmCompleter GoToCallers<CR>
 nnoremap <leader>gce :YcmCompleter GoToCallees<CR>
 
@@ -292,16 +291,21 @@ set conceallevel=2
 
 " => golden-ratio
 let g:golden_ratio_autocommand = 0
-nnoremap <leader>gr <Plug>(golden_ratio_resize)
+nnoremap <leader>wr <Plug>(golden_ratio_resize)
 
 " => ack
 command! -nargs=* Search call WrapAck(<f-args>)
 
+" Use `mM` to mark the location first, 
+" when travel in the quickfix list will create many `tabs`,
+" finally back to original location by `M, 
+" and `:tabonly` (`,to`) to delete all `tabs`
+
 " Use Ack to search
-noremap <leader>ss :Search 
+noremap <leader>ss mM:Search 
 
 " Ack the selected text
-vnoremap <leader>sv :call VSearch()<CR>
+vnoremap <leader>sv mM:call VSearch()<CR>
 
 function! WrapAck(...) 
     " [Search results leak into terminal](https://github.com/mileszs/ack.vim/issues/18)

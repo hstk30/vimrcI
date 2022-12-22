@@ -9,8 +9,8 @@ noremap  <leader>p "+p
 noremap  <leader>P "+P
 
 " Smart way to move between windows
-noremap  <C-j> <C-W>j
 noremap  <C-k> <C-W>k
+noremap  <C-j> <C-W>j
 noremap  <C-h> <C-W>h
 noremap  <C-l> <C-W>l
 
@@ -32,14 +32,19 @@ noremap <silent><leader>8 8gt<CR>
 noremap <silent><leader>9 9gt<CR>
 noremap <silent><leader>0 10gt<CR>
 
+" In Mac <C-Tab> doesn't exist.
+" So map <C-\> to switch last tab
+nnoremap <C-\> g<Tab>
+inoremap <C-\> <C-O>g<Tab>
+
 " Switch CWD to the directory of the open buffer
 noremap  <leader>cd :cd %:p:h<CR>:pwd<CR>
 
 " switch adjacent line
-nnoremap dj :move .+1<CR>==
 nnoremap dk :move .-2<CR>==
-vnoremap dj :move '>+1<CR>gv=gv
+nnoremap dj :move .+1<CR>==
 vnoremap dk :move '<-2<CR>gv=gv
+vnoremap dj :move '>+1<CR>gv=gv
 
 " Make sure that enter is never overriden in the quickfix window
 autocmd BufReadPost quickfix nnoremap <buffer> <CR> <CR>
@@ -60,7 +65,7 @@ noremap  0 ^
 " search for the text we want, and store the search pattern,
 " then yank the replace text to default reg 0, 
 " final press <leader>sp add flag
-nnoremap <leader>sp :%s//\=@0/g
+nnoremap <leader>sy :%s//\=@0/g
 
 " count the matches for the current pattern
 nnoremap <leader>cn :%s///gn<CR>
@@ -95,10 +100,6 @@ nnoremap <silent> ]B :blast<CR>
 nnoremap  [ot :tabnew<CR>
 nnoremap  ]ot :tabclose<CR>
 nnoremap  <leader>to :tabonly<CR>
-" In Mac <C-Tab> doesn't exist.
-" So map <C-\> to switch last tab
-nnoremap <C-\> g<Tab>
-inoremap <C-\> <C-O>g<Tab>
 
 " tag  
 nnoremap [t :tprevious<CR>
