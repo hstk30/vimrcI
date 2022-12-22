@@ -1,17 +1,27 @@
 # vimrcI
 
-# <leader>
+## <leader>
+
 ```
 " PracticalVim Tip 49
 let mapleader="," 
 noremap \ ,
 ```
+
 ## 依赖
 
 - `Universal Ctags`，插件`tagbar` 和`vim-gutentags` 需要
 - `YouCompleteMe` 的各种依赖[YouCompleteMe](https://github.com/ycm-core/YouCompleteMe#installation)
 
 ## Key Mappings
+
+### 基本原则
+
+- **右-左-左** ，或者 **右-左-右** ，因为 `<leader>` 设置的 `,`，
+因此插件的快捷键尽量调整为左手按键的缩写。
+- 尽量少的覆盖原有键位，暂时覆盖了`,`, `C-a`, `C-e`
+- 没有用 `M-...` `D-...` `A-...` 等键位组合，因为在我的 `Mac + iTerm2` 有问题
+
 
 ### **模式** 说明
 
@@ -32,6 +42,7 @@ noremap \ ,
 | `C-h` | `N` | 跳转到左边窗口 |
 | `C-l` | `N` | 跳转到右边窗口 |
 
+
 ### 文件管理
 
 | 按键 | 模式 | 说明 |
@@ -49,6 +60,7 @@ noremap \ ,
 | `<leader>ev` | `N` | 以 `vsplit` 打开文件，扩展了当前文件路径  |
 | `<leader>et` | `N` | 在新 **tab** 打开文件，扩展了当前文件路径  |
 
+
 ### 交换邻近行
 
 | 按键 | 模式 | 说明 |
@@ -57,6 +69,7 @@ noremap \ ,
 | `dj` | `N+V` | 当前行和下一行交换 |
 
 记为先删除(`d`)然后移动到上/下(`k/j`)
+
 
 ### Bash-Like
 
@@ -69,8 +82,17 @@ noremap \ ,
 | `C-n` | `C` | 下一条历史命令 `Down` |
 
 
-### 插件
+### 系统复制粘贴
 
+| 按键 | 模式 | 说明 |
+| :--: | --- | --- |
+| `<leader>y` | `N` | 复制到系统剪切板 |
+| `<leader>Y` | `N` | 复制到系统剪切板 |
+| `<leader>p` | `N` | 从系统剪切板粘贴 |
+| `<leader>P` | `N` | 从系统剪切板粘贴 |
+
+
+### 插件
 
 [ack.vim](https://github.com/mileszs/ack.vim) : **vimgrep** 替代
 
@@ -118,7 +140,6 @@ noremap \ ,
     `<leader>nf` -- `N` -- 显示当前 **buffer** 在文件树中的位置
 
 
-
 [asyncrun.vim](https://github.com/skywind3000/asyncrun.vim) : 异步执行Shell 命令
 
     `<leader>ar` -- `N` -- `:AsyncRun `
@@ -160,6 +181,8 @@ noremap \ ,
 
 ### Misc
 
+- `*` -- `V` -- 对选中文本进行向下查找
+- `#` -- `V` -- 对选中文本进行向上查找
 - `<leader>cn` -- `N` -- 统计 last pattern 匹配的数量
 - `<leader>sy` -- `N` -- 分步替换，先 **search** 被替换的文本，再 **yank** 要替换的文本，再执行这个命令进行替换
 
