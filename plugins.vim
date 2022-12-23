@@ -34,7 +34,7 @@ Plug 'git@github.com:tpope/vim-fugitive'
 Plug 'git@github.com:airblade/vim-gitgutter'
 
 " Lang
-Plug 'git@github.com:preservim/tagbar'
+" Plug 'git@github.com:preservim/tagbar'
 Plug 'git@github.com:dense-analysis/ale'
 Plug 'git@github.com:ludovicchabant/vim-gutentags'
 Plug 'git@github.com:hstk30/YCM-Generator.git'
