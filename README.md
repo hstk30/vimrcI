@@ -1,6 +1,6 @@
 # vimrcI
 
-## <leader>
+## leader
 
 ```
 " PracticalVim Tip 49
@@ -206,8 +206,8 @@ noremap \ ,
 
 ### Misc
 
-- `*` -- `V` -- 对选中文本进行向下查找
-- `#` -- `V` -- 对选中文本进行向上查找
-- `<leader>cn` -- `N` -- 统计 last pattern 匹配的数量
-- `<leader>sy` -- `N` -- 分步替换，先 **search** 被替换的文本，再 **yank** 要替换的文本，再执行这个命令进行替换
+- `*` `V` - 对选中文本进行向下查找
+- `#` `V` - 对选中文本进行向上查找
+- `<leader>cn` `N` - 统计 last pattern 匹配的数量
+- `<leader>sy` `N` - 分步替换，先 **search** 被替换的文本，再 **yank** 要替换的文本，再执行这个命令进行替换
 
