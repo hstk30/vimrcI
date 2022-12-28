@@ -307,6 +307,10 @@ noremap <leader>ss mM:Search
 " Ack the selected text
 vnoremap <leader>sv mM:call VSearch()<CR>
 
+" Ack the word under the cursor 
+noremap <leader>* mM:call WSearch()<CR>
+
+
 function! WrapAck(...) 
     " [Search results leak into terminal](https://github.com/mileszs/ack.vim/issues/18)
     let l:string = @/
@@ -329,6 +333,13 @@ function! WrapAck(...)
         let &shellpipe = saved_shellpipe
     endtry
 endfunction
+
+
+function! WSearch()
+    let l:temp = expand("<cword>")
+    call WrapAck(temp)
+endfunction
+
 
 function! VSearch()
     let l:temp = @s

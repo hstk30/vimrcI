@@ -58,9 +58,6 @@ noremap  <leader>q :e ~/buffer<CR>
 " Quickly open a markdown buffer for scribble
 noremap  <leader>x :e ~/buffer.md<CR>
 
-" Remap VIM 0 to first non-blank character
-noremap  0 ^
-
 " => some tips from Practical Vim
 " search for the text we want, and store the search pattern,
 " then yank the replace text to default reg 0, 
@@ -69,10 +66,6 @@ nnoremap <leader>sy :%s//\=@0/g
 
 " count the matches for the current pattern
 nnoremap <leader>cn :%s///gn<CR>
-
-" Practical Vim tip 86: search for the current visual selection
-xnoremap * :<C-u>call <SID>VSetSearch()<CR>/<C-R>=@/<CR><CR> 
-xnoremap # :<C-u>call <SID>VSetSearch()<CR>?<C-R>=@/<CR><CR>
 
 " => unimpaired like
 " **Build-in** commands: `[` + 
@@ -161,4 +154,14 @@ map <leader>ew :e %%
 map <leader>es :sp %%
 map <leader>ev :vsp %%
 map <leader>et :tabe %%
+
+" Remap VIM 0 to first non-blank character
+noremap  0 ^
+
+" Fix Y so that behaves like D
+map Y y$
+
+" Practical Vim tip 86: search for the current visual selection
+xnoremap * :<C-u>call <SID>VSetSearch()<CR>/<C-R>=@/<CR><CR> 
+xnoremap # :<C-u>call <SID>VSetSearch()<CR>?<C-R>=@/<CR><CR>
 
