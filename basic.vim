@@ -169,14 +169,9 @@ set laststatus=2
 " Format the status line
 set statusline=\ %{HasPaste()}%F%m%r%h\ %w\ \ CWD:\ %r%{getcwd()}%h\ \ \ Line:\ %l\ \ Column:\ %c
 
-" Visual line repeat 
-xnoremap . :normal .<CR>
-xnoremap @ :<C-u>call ExecuteMacroOverVisualRange()<CR>
-
-function! ExecuteMacroOverVisualRange()
-  echo '@'.getcmdline()
-  execute ":'<,'>normal @".nr2char(getchar())
-endfunction
+" terminal 
+command! Bterm botright terminal
+set termwinsize=20x0
 
 " Strip trailing whitespace
 function! Preserve(command)
@@ -186,7 +181,6 @@ function! Preserve(command)
 endfunction
 
 command! TrimWhitespace call Preserve("%s/\\s\\+$//e")
-nmap _$ :TrimWhitespace<CR>
 
 if has("autocmd")
     autocmd BufWritePre *.txt,*.py,*.sh,*.c,*.rs TrimWhitespace

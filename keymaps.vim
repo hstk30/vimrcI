@@ -73,6 +73,7 @@ nnoremap <leader>cn :%s///gn<CR>
 "   - Alphabet keystroke: `DIPcdfimpsz`
 "   - Punctuation marks: `#'(*\`/{`
 " **Customized**: `bBtTqQ<C-q>lLeEh`
+
 " highlight 
 nnoremap <silent> [oh :hlsearch<CR>
 nnoremap <silent> ]oh :nohlsearch<CR>
@@ -164,4 +165,20 @@ map Y y$
 " Practical Vim tip 86: search for the current visual selection
 xnoremap * :<C-u>call <SID>VSetSearch()<CR>/<C-R>=@/<CR><CR> 
 xnoremap # :<C-u>call <SID>VSetSearch()<CR>?<C-R>=@/<CR><CR>
+
+" Just search the word but not forword to the next 
+noremap * mm*N
+
+" Visual line repeat 
+xnoremap . :normal .<CR>
+xnoremap @ :<C-u>call ExecuteMacroOverVisualRange()<CR>
+
+function! ExecuteMacroOverVisualRange()
+  echo '@'.getcmdline()
+  execute ":'<,'>normal @".nr2char(getchar())
+endfunction
+
+" terminal 
+noremap <leader>tt :botright terminal ++close<CR>
+tnoremap <Esc> <C-W>N
 

@@ -21,7 +21,7 @@ Plug 'git@github.com:nathanaelkane/vim-indent-guides'
 
 Plug 'git@github.com:skywind3000/asyncrun.vim'
 Plug 'git@github.com:roman/golden-ratio.git'
-" Plug 'git@github.com:michaeljsmith/vim-indent-object'
+Plug 'git@github.com:michaeljsmith/vim-indent-object'
 Plug 'git@github.com:machakann/vim-highlightedyank.git'
 
 " Status Line
@@ -154,7 +154,7 @@ xmap <leader>cs <Plug>(GitGutterStageHunk)
 nnoremap <leader>v :.GBrowse!<CR>
 xnoremap <leader>v :'<'>GBrowse!<CR>
 nnoremap <leader>gb :Git blame<CR>
-nnoremap <leader>gf :Git diff<CR>
+nnoremap <leader>gf :topleft Git diff<CR>
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""

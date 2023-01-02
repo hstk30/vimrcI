@@ -18,7 +18,7 @@ noremap \ ,
 - **右-左-左** ，或者 **右-左-右** ，因为 `<leader>` 设置的 `,`，
 因此插件的快捷键尽量调整为左手按键的缩写。
 - 尽量少的覆盖原有键位，暂时覆盖了`,`, `C-a`, `C-e`
-- 没有用 `M-...` `D-...` `A-...` `TAB` `Fx` 等键位组合，因为 `Mac + iTerm2` 上有各种历史问题
+- 没有用 `M-...` `D-...` `A-...` `TAB` `Fn` 等键位组合，因为 `Mac + iTerm2` 上有各种历史问题
 
 ## feature
 
@@ -91,13 +91,21 @@ noremap \ ,
 | `<leader>P` | `N` | 从系统剪切板粘贴 |
 
 
+### 终端支持
+
+| 按键 | 模式 | 说明 |
+| :--: | --- | --- |
+| `<leader>tt` | `N` | 在 **bottom** 开启终端 |
+| `<Esc>` | 终端 | 进入 `Terminal-Normal` 模式，`i/a` 返回终端模式 |
+
+
 ### 插件
 
 [ack.vim](https://github.com/mileszs/ack.vim) : **vimgrep** 替代
 
 - `<leader>ss` `N` - `:Search xxx` 当前项目下递归查找`xxx`，默认为 last pattern
 - `<leader>sv` `V` - 当前项目下递归查找选中的内容
-- `<leader>*` `N` - 当前项目下递归当前光标下的单词
+- `<leader>*` `N` - 当前项目下递归查找当前光标下的单词
 
 
 [LeaderF](https://github.com/Yggdroot/LeaderF) : 文件模糊查找
