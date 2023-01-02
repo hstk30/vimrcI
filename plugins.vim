@@ -16,10 +16,9 @@ Plug 'git@github.com:tpope/vim-commentary'
 Plug 'git@github.com:tpope/vim-abolish'
 Plug 'git@github.com:jiangmiao/auto-pairs'
 Plug 'git@github.com:preservim/nerdtree'
-Plug 'git@github.com:terryma/vim-expand-region'
+" Plug 'git@github.com:terryma/vim-expand-region'
 Plug 'git@github.com:nathanaelkane/vim-indent-guides'
 
-Plug 'git@github.com:skywind3000/asyncrun.vim'
 Plug 'git@github.com:roman/golden-ratio.git'
 Plug 'git@github.com:michaeljsmith/vim-indent-object'
 Plug 'git@github.com:machakann/vim-highlightedyank.git'
@@ -233,13 +232,6 @@ let g:Lf_WildIgnore = {
        \ 'dir': ['.svn','.git','.hg','venv','.vscode','.SpaceVim.d', 'target', 'log', 'vendor'],
        \ 'file': ['*.sw?','~$*','*.bak','*.exe','*.o','*.so','*.py[co]']
        \}
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => Asyncrun
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" 自动打开 quickfix window ，高度为 6
-let g:asyncrun_open = 6
-nnoremap <leader>ar :AsyncRun 
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""

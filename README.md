@@ -148,11 +148,6 @@ noremap \ ,
 - `<leader>nf` `N` - 显示当前 **buffer** 在文件树中的位置
 
 
-[asyncrun.vim](https://github.com/skywind3000/asyncrun.vim) : 异步执行Shell 命令
-
-- `<leader>ar` `N` - `:AsyncRun `
-
-
 [YouCompleteMe](https://github.com/ycm-core/YouCompleteMe) : 代码补全
 
 - `<leader>gd` `N` - go to definition or declaration
