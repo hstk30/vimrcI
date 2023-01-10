@@ -179,6 +179,8 @@ function! ExecuteMacroOverVisualRange()
 endfunction
 
 " terminal 
-noremap <leader>tt :botright terminal ++close<CR>
-tnoremap <Esc> <C-W>N
+if has("terminal")
+    noremap <leader>tt :botright terminal ++close<CR>
+    tnoremap <Esc> <C-W>N
+endif
 

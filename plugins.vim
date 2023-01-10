@@ -204,6 +204,10 @@ nnoremap  <leader>nn :NERDTreeToggle<CR>
 nnoremap  <leader>nb :NERDTreeFromBookmark<Space>
 nnoremap  <leader>nf :NERDTreeFind<CR>
 
+" A bug waiting fix 
+" [nerdtree menu can't close](https://github.com/preservim/nerdtree/issues/1321)
+let g:NERDTreeMinimalMenu=1
+
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => LeaderF
@@ -245,6 +249,10 @@ let g:ycm_complete_in_strings=1
 let g:ycm_key_invoke_completion='<c-z>'
 set completeopt=menu,menuone
 let g:ycm_add_preview_to_completeopt=0
+
+" no hover info default, press `<leader>k` to toggle the hover
+let g:ycm_auto_hover=''
+nnoremap <leader>k <plug>(YCMHover)
 
 nnoremap <leader>sw <Plug>(YCMFindSymbolInWorkspace)
 nnoremap <leader>sd <Plug>(YCMFindSymbolInDocument)

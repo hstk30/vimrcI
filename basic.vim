@@ -166,11 +166,16 @@ au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g
 " Always show the status line
 set laststatus=2
 
+" from vim-sensible
+set listchars=tab:>\ ,trail:-,extends:>,precedes:<,nbsp:+
+
 " Format the status line
 set statusline=\ %{HasPaste()}%F%m%r%h\ %w\ \ CWD:\ %r%{getcwd()}%h\ \ \ Line:\ %l\ \ Column:\ %c
 
 " terminal 
-set termwinsize=20x0
+if has("terminal")
+    set termwinsize=16x0
+endif
 
 " Strip trailing whitespace
 function! Preserve(command)
