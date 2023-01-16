@@ -4,20 +4,15 @@ call plug#begin()
 Plug 'git@github.com:mileszs/ack.vim'
 Plug 'git@github.com:Yggdroot/LeaderF'
 
-" unknow
-" Plug 'git@github.com:tomtom/tlib_vim'
-" Plug 'git@github.com:editorconfig/editorconfig-vim'
-" Plug 'git@github.com:MarcWeber/vim-addon-mw-utils'
-
 " Auxiliary
 Plug 'git@github.com:tpope/vim-surround'
 Plug 'git@github.com:tpope/vim-repeat'
 Plug 'git@github.com:tpope/vim-commentary'
 Plug 'git@github.com:tpope/vim-abolish'
+Plug 'git@github.com:tpope/vim-rsi.git'
 Plug 'git@github.com:jiangmiao/auto-pairs'
 Plug 'git@github.com:preservim/nerdtree'
-" Plug 'git@github.com:terryma/vim-expand-region'
-Plug 'git@github.com:nathanaelkane/vim-indent-guides'
+Plug 'git@github.com:nathanaelkane/vim-indent-guides'
 
 Plug 'git@github.com:roman/golden-ratio.git'
 Plug 'git@github.com:michaeljsmith/vim-indent-object'
@@ -132,7 +127,7 @@ let g:ale_python_flake8_options = '--config=$HOME/.vim/vimrcI/conf/flake8.conf'
 set updatetime=100
 let g:gitgutter_enabled=0
 nnoremap <leader>df :GitGutterToggle<CR>:GitGutterLineHighlightsToggle<CR>
-nmap [h <Plug>(GitGutterPrevHunk)]
+nmap [h <Plug>(GitGutterPrevHunk)
 nmap ]h <Plug>(GitGutterNextHunk)
 nmap <leader>cp <Plug>(GitGutterPreviewHunk)
 nmap <leader>cs <Plug>(GitGutterStageHunk)

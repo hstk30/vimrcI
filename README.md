@@ -179,12 +179,6 @@ noremap \ ,
 - `ia` `N` - inner 参数对象
 
 
-[vim-expand-region](https://github.com/terryma/vim-expand-region) : 自动调整 Visual 选择的范围
-
-- `+` `N+V` - 依次扩大 Visual 选择的范围
-- `_` `N+V` - 依次缩小 Visual 选择的范围
-
-
 [vim-surround](https://github.com/tpope/vim-surround) : Delete/change/add parentheses/quotes/XML-tags/much more with ease
 
 -  `cs{src_pair}{des_pair}` `N` - `cs"'` `cs(]` ... change surround pairs `src_pair` to `des_pair`

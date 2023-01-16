@@ -173,7 +173,7 @@ set listchars=tab:>\ ,trail:-,extends:>,precedes:<,nbsp:+
 set statusline=\ %{HasPaste()}%F%m%r%h\ %w\ \ CWD:\ %r%{getcwd()}%h\ \ \ Line:\ %l\ \ Column:\ %c
 
 " terminal 
-if has("terminal")
+if v:version >= 900
     set termwinsize=16x0
 endif
 
