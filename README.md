@@ -1,5 +1,24 @@
 # vimrcI
 
+## 安装
+
+    git clone https://github.com/hstk30/vimrcI.git .vim/vimrcI
+    ln -s ~/.vim/vimrcI/vimrc ~/.vimrc
+    ln -s ~/.vim/vimrcI/ideavimrc ~/.ideavimrc
+
+在VIM 中安装插件
+
+    :PlugInstall
+
+除了[YouCompleteMe](https://github.com/ycm-core/YouCompleteMe#installation) 应该都很快下好了，
+否则你应该检查一下你的网络😕
+
+
+## 依赖
+
+- `Universal Ctags`，插件`tagbar` 和`vim-gutentags` 需要
+- `YouCompleteMe` 的各种依赖[YouCompleteMe](https://github.com/ycm-core/YouCompleteMe#installation)
+
 ## leader
 
 ```
@@ -7,11 +26,6 @@
 let mapleader="," 
 noremap \ ,
 ```
-
-## 依赖
-
-- `Universal Ctags`，插件`tagbar` 和`vim-gutentags` 需要
-- `YouCompleteMe` 的各种依赖[YouCompleteMe](https://github.com/ycm-core/YouCompleteMe#installation)
 
 ## 基本原则
 
