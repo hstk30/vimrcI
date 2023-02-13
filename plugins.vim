@@ -12,7 +12,7 @@ Plug 'git@github.com:tpope/vim-abolish'
 Plug 'git@github.com:tpope/vim-rsi.git'
 Plug 'git@github.com:jiangmiao/auto-pairs'
 Plug 'git@github.com:preservim/nerdtree'
-Plug 'git@github.com:nathanaelkane/vim-indent-guides'
+Plug 'git@github.com:nathanaelkane/vim-indent-guides'
 
 Plug 'git@github.com:roman/golden-ratio.git'
 Plug 'git@github.com:michaeljsmith/vim-indent-object'
