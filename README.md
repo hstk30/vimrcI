@@ -16,7 +16,7 @@
 
 ## 依赖
 
-- `Universal Ctags`，插件`tagbar` 和`vim-gutentags` 需要
+- [Universal Ctags](https://ctags.io/), [global](https://www.gnu.org/software/global/)，插件`vim-gutentags` 需要
 - `YouCompleteMe` 的各种依赖[YouCompleteMe](https://github.com/ycm-core/YouCompleteMe#installation)
 
 ## leader
@@ -165,16 +165,19 @@ noremap \ ,
 [YouCompleteMe](https://github.com/ycm-core/YouCompleteMe) : 代码补全
 
 - `<leader>k` `N` - 开启/关闭hover提醒，默认关闭
-- `<leader>gd` `N` - go to definition or declaration
-- `<leader>gr` `N` - go to references
-- `<leader>gi` `N` - go to implementation
-- `<leader>gcr` `N` - go to callers
-- `<leader>gce` `N` - go to callees
 - `<leader>gk` `N` - 查看文档说明
 
 不同语言不一样，有点不灵，一些大项目需要 
 [YCM-Generator](https://github.com/hstk30/YCM-Generator) 
 帮忙。
+
+
+[vim-gutentags](https://github.com/ludovicchabant/vim-gutentags) 和 [gutentags_plus](https://github.com/skywind3000/gutentags_plus)
+
+- `<leader>gs` `N` - Find this symbol
+- `<leader>gg` `N` - Find this definition
+- `<leader>gd` `N` - Find functions called by this function
+- `<leader>gc` `N` - Find functions calling this function
 
 
 [golden-ratio](https://github.com/roman/golden-ratio) : 多窗口自动调整尺寸

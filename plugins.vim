@@ -31,6 +31,7 @@ Plug 'git@github.com:airblade/vim-gitgutter'
 " Plug 'git@github.com:preservim/tagbar'
 Plug 'git@github.com:dense-analysis/ale'
 Plug 'git@github.com:ludovicchabant/vim-gutentags'
+Plug 'skywind3000/gutentags_plus'
 Plug 'git@github.com:hstk30/YCM-Generator.git'
 Plug 'git@github.com:ycm-core/YouCompleteMe'
 " Plug 'git@github.com:garbas/vim-snipmate'
@@ -152,17 +153,21 @@ nnoremap <leader>gf :topleft Git diff<CR>
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => Tagbar
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" nnoremap  <F8> :TagbarToggle<CR>
-" let g:tagbar_ctags_bin = '/opt/homebrew/bin/ctags'
-
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => vim-gutentags
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+let $GTAGSLABEL = 'native-pygments'
+let $GTAGSCONF = expand('~/.vim/vimrcI/gtags.conf')
+
+let g:gutentags_modules = []
+if executable('ctags')
+	let g:gutentags_modules += ['ctags']
+endif
+if executable('gtags-cscope') && executable('gtags')
+	let g:gutentags_modules += ['gtags_cscope']
+endif
+
 let g:gutentags_project_root = ['.root', '.svn', '.git', '.hg', '.project']
-" let g:gutentags_exclude_filetypes = ['.pyc', '.dll', '.log']
+let g:gutentags_define_advanced_commands = 1
 
 " 所生成的数据文件的名称
 let g:gutentags_ctags_tagfile = '.tags'
@@ -171,10 +176,14 @@ let g:gutentags_ctags_tagfile = '.tags'
 let s:vim_tags = expand('~/.cache/tags')
 let g:gutentags_cache_dir = s:vim_tags
 
+" 禁用 gutentags 自动加载 gtags 数据库的行为
+let g:gutentags_auto_add_gtags_cscope = 0
+
 " 配置 ctags 的参数
 let g:gutentags_ctags_extra_args = ['--fields=+niazS', '--extra=+q']
 let g:gutentags_ctags_extra_args += ['--c++-kinds=+px']
 let g:gutentags_ctags_extra_args += ['--c-kinds=+px']
+let g:gutentags_ctags_extra_args += ['--output-format=e-ctags']
 let g:gutentags_ctags_extra_args += [
             \ '--exclude=.git', '--exclude=BUILD', '--exclude=.svn',
             \ '--exclude=*.js', '--exclude=vendor/*', '--exclude=node_modules/*',
@@ -186,6 +195,25 @@ let g:gutentags_ctags_extra_args += [
             \ '--exclude=\*.md', '--exclude=\*.markdown', '--exclude=doc/*',
             \ '--exclude=docs/*', '--exclude=bin/*', '--exclude=ide/*'
             \ ]
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => gutentags_plus
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+let g:gutentags_plus_switch = 1
+let g:gutentags_plus_nomap = 1
+" 0 or s: Find this symbol
+" 1 or g: Find this definition
+" 2 or d: Find functions called by this function
+" 3 or c: Find functions calling this function
+" 4 or t: Find this text string
+" 6 or e: Find this egrep pattern
+" 7 or f: Find this file
+" 8 or i: Find files #including this file
+" 9 or a: Find places where this symbol is assigned a value
+noremap <silent> <leader>gs :GscopeFind s <C-R><C-W><cr>
+noremap <silent> <leader>gg :GscopeFind g <C-R><C-W><cr>
+noremap <silent> <leader>gd :GscopeFind d <C-R><C-W><cr>
+noremap <silent> <leader>gc :GscopeFind c <C-R><C-W><cr>
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -249,13 +277,11 @@ let g:ycm_add_preview_to_completeopt=0
 let g:ycm_auto_hover=''
 nnoremap <leader>k <plug>(YCMHover)
 
-nnoremap <leader>sw <Plug>(YCMFindSymbolInWorkspace)
-nnoremap <leader>sd <Plug>(YCMFindSymbolInDocument)
-nnoremap <leader>gd :YcmCompleter GoTo<CR>
-nnoremap <leader>gr :YcmCompleter GoToReferences<CR>
-nnoremap <leader>gi :YcmCompleter GoToImplementation<CR>
-nnoremap <leader>gcr :YcmCompleter GoToCallers<CR>
-nnoremap <leader>gce :YcmCompleter GoToCallees<CR>
+" nnoremap <leader>gd :YcmCompleter GoTo<CR>
+" nnoremap <leader>gr :YcmCompleter GoToReferences<CR>
+" nnoremap <leader>gi :YcmCompleter GoToImplementation<CR>
+" nnoremap <leader>gcr :YcmCompleter GoToCallers<CR>
+" nnoremap <leader>gce :YcmCompleter GoToCallees<CR>
 
 nnoremap <leader>gk :YcmCompleter GetDoc<CR>
 
