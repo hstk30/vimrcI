@@ -210,10 +210,10 @@ let g:gutentags_plus_nomap = 1
 " 7 or f: Find this file
 " 8 or i: Find files #including this file
 " 9 or a: Find places where this symbol is assigned a value
-noremap <silent> <leader>gs :GscopeFind s <C-R><C-W><cr>
-noremap <silent> <leader>gg :GscopeFind g <C-R><C-W><cr>
-noremap <silent> <leader>gd :GscopeFind d <C-R><C-W><cr>
-noremap <silent> <leader>gc :GscopeFind c <C-R><C-W><cr>
+noremap <silent> <leader>gs mM:GscopeFind s <C-R><C-W><cr>
+noremap <silent> <leader>gg mM:GscopeFind g <C-R><C-W><cr>
+noremap <silent> <leader>gd mM:GscopeFind d <C-R><C-W><cr>
+noremap <silent> <leader>gc mM:GscopeFind c <C-R><C-W><cr>
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
