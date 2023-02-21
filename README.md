@@ -1,5 +1,8 @@
 # vimrcI
 
+[中文-readme](./README.md) | [EN-readme](./readme_en.md)
+
+
 ## 安装
 
     git clone https://github.com/hstk30/vimrcI.git .vim/vimrcI
@@ -16,7 +19,7 @@
 
 ## 依赖
 
-- [Universal Ctags](https://ctags.io/), [global](https://www.gnu.org/software/global/)，插件`vim-gutentags` 需要
+- [Universal Ctags](https://ctags.io/), [global](https://www.gnu.org/software/global/)，插件[vim-gutentags](https://github.com/ludovicchabant/vim-gutentags) 需要
 - `YouCompleteMe` 的各种依赖[YouCompleteMe](https://github.com/ycm-core/YouCompleteMe#installation)
 
 ## leader
@@ -32,9 +35,9 @@ noremap \ ,
 - **右-左-左** ，或者 **右-左-右** ，因为 `<leader>` 设置的 `,`，
 因此插件的快捷键尽量调整为左手按键的缩写。
 - 尽量少的覆盖原有键位，暂时覆盖了`,`, `C-a`, `C-e`
-- 没有用 `M-...` `D-...` `A-...` `TAB` `Fn` 等键位组合，因为 `Mac + iTerm2` 上有各种历史问题
+- 没有用 `M-x` `D-x` `A-x` `TAB` `Fn` 等键位组合，因为 `Mac + iTerm2` 上有各种历史问题
 
-## feature
+## Feature
 
 ### **模式** 说明
 
@@ -133,10 +136,10 @@ noremap \ ,
 
 [ale](https://github.com/dense-analysis/ale) : 语法动态检查
 
-- `<leader>[e` `N` - 当前 **buffer** 的上一个语法错误 **error** **warning** 
-- `<leader>]e` `N` - 当前 **buffer** 的下一个语法错误 **error** **warning** 
-- `<leader>[E` `N` - 当前 **buffer** 的第一个语法错误 **error** **warning** 
-- `<leader>]E` `N` - 当前 **buffer** 的最后一个语法错误 **error** **warning** 
+- `[e` `N` - 当前 **buffer** 的上一个语法错误 **error** **warning** 
+- `]e` `N` - 当前 **buffer** 的下一个语法错误 **error** **warning** 
+- `[E` `N` - 当前 **buffer** 的第一个语法错误 **error** **warning** 
+- `]E` `N` - 当前 **buffer** 的最后一个语法错误 **error** **warning** 
 - `<leader>dl` `N` - 小窗口显示具体错误信息
 
 
@@ -149,14 +152,14 @@ noremap \ ,
 [vim-gitgutter](https://github.com/airblade/vim-gitgutter) : git diff 可视化
 
 - `<leader>df` `N` - 开启/关闭 `git diff` 可视化
-- `<leader>[h` `N` - 当前 **buffer** 的上一个 `git diff` 改动
-- `<leader>]h` `N` - 当前 **buffer** 的下一个 `git diff` 改动
+- `[h` `N` - 当前 **buffer** 的上一个 `git diff` 改动
+- `]h` `N` - 当前 **buffer** 的下一个 `git diff` 改动
 - `<leader>cp` `N` - 小窗口显示改动前后的差异
 - `<leader>cs` `N+V` - 暂存当前差异
 - `<leader>cu` `N` - 撤销当前差异
 
 
-[needtree](https://github.com/preservim/nerdtree) : 文件树
+[nerdtree](https://github.com/preservim/nerdtree) : 文件树
 
 - `<leader>nn` `N` - 开启/关闭文件树
 - `<leader>nf` `N` - 显示当前 **buffer** 在文件树中的位置
