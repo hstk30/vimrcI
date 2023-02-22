@@ -20,7 +20,7 @@ endif
 
 
 "----------------------------------------------------------------------
-" 防止tmux下vim的背景色显示异常
+" Fixing Vim's Background Color Erase for 256-color tmux and GNU screen
 " Refer: http://sunaku.github.io/vim-256color-bce.html
 "----------------------------------------------------------------------
 if &term =~ '256color' && $TMUX != ''

@@ -20,7 +20,7 @@ noremap  <leader>bd :Bclose<CR>:tabclose<CR>gT
 " Close all the buffers
 noremap  <leader>ba :bufdo bd<CR>
 
-" <leader>+数字键 切换tab
+" <leader>+num switch tab
 noremap <silent><leader>1 1gt<CR>
 noremap <silent><leader>2 2gt<CR>
 noremap <silent><leader>3 3gt<CR>

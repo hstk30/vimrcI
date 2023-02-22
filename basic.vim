@@ -10,10 +10,10 @@ set autoread
 " vim q: e11: invalid in command-line window; <cr> executes, ctrl-c quits: checktime
 au FocusGained * checktime
 
-" 上下移动时，保留的最少行数
+" Minimal number of screen lines to keep above and below the cursor.
 set scrolloff=7
 
-" 水平切割窗口时，默认在右边显示新窗口
+" Put the new window right of the current one.
 set splitright
 
 " Avoid garbled characters in Chinese language windows OS
@@ -76,10 +76,10 @@ if has("gui_macvim")
     autocmd GUIEnter * set vb t_vb=
 endif
 
-" 总是显示侧边栏（用于显示 mark/gitdiff/诊断信息）
+" Always show the signcolumn(show mark/gitdiff info)
 " set signcolumn=yes
 
-" 总是显示标签栏
+" Always show tab line
 set showtabline=2
 set foldcolumn=1
 
@@ -131,9 +131,7 @@ set wrap "Wrap lines
 let g:lasttab = 1
 au TabLeave * let g:lasttab = tabpagenr()
 
-"----------------------------------------------------------------------
-" 文件搜索和补全时忽略下面扩展名
-"----------------------------------------------------------------------
+" Ignore special files
 set suffixes=.bak,~,.o,.h,.info,.swp,.obj,.pyc,.pyo,.egg-info,.class
 
 set wildignore=*.o,*.obj,*~,*.exe,*.a,*.pdb,*.lib "stuff to ignore when tab completing
@@ -218,4 +216,3 @@ function! <SID>BufcloseCloseIt()
         execute("bdelete! ".l:currentBufNum)
     endif
 endfunction
-
