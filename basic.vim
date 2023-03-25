@@ -27,7 +27,7 @@ set wildmenu
 set wildmode=full
 
 " display line number
-" set number
+set number
 
 " display position (row, column)
 set ruler

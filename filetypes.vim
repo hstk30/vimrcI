@@ -4,6 +4,11 @@
 let python_highlight_all = 1
 au FileType python syn keyword pythonDecorator True None False self
 
+autocmd BufWinEnter *.py nmap <silent> <leader>db :w<CR>:botright terminal python3 -m pdb %:p<CR>
+autocmd BufWinEnter *.py nmap <silent> <leader>rn :w<CR>:botright terminal python3 %:p<CR>
+
+autocmd BufWinEnter *.c nmap <silent> <leader>db :w<CR>:botright terminal lldb ./main<CR>
+
 au BufNewFile,BufRead *.jinja set syntax=htmljinja
 au BufNewFile,BufRead *.mako set ft=mako
 
