@@ -2,6 +2,9 @@
 
 [中文-readme](./README.md) | [EN-readme](./readme_en.md)
 
+![vim-show](https://github.com/hstk30/reference/blob/main/gifs/vimrcI/vim-jump.gif)
+
+
 ## Install
 
     git clone https://github.com/hstk30/vimrcI.git .vim/vimrcI
