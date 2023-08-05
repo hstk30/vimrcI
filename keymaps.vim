@@ -20,6 +20,9 @@ noremap  <leader>bd :Bclose<CR>:tabclose<CR>gT
 " Close all the buffers
 noremap  <leader>ba :bufdo bd<CR>
 
+" Close empty buffers
+noremap <leader>bc :<C-u>call DeleteEmptyBuffers()<CR>
+
 " <leader>+num switch tab
 noremap <silent><leader>1 1gt<CR>
 noremap <silent><leader>2 2gt<CR>
@@ -184,3 +187,17 @@ if has("terminal")
     tnoremap <Esc> <C-W>N
 endif
 
+" Some operation will generate many [No Name] buffer
+function! DeleteEmptyBuffers()
+    let [i, n] = [1, bufnr('$')]
+    let empty = []
+    while i <= n
+        if bufexists(i) && bufname(i) == ''
+            call add(empty, i)
+        endif
+        let i += 1
+    endwhile
+    if len(empty) > 0
+        exe 'bwipeout' join(empty)
+    endif
+endfunction

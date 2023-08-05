@@ -47,6 +47,7 @@ Plug 'git@github.com:rust-lang/rust.vim'
 " Plug 'git@github.com:digitaltoad/vim-pug'
 " Plug 'git@github.com:chr4/nginx.vim'
 
+Plug 'https://github.com/rhysd/vim-llvm.git'
 call plug#end()
 
 
@@ -155,6 +156,7 @@ nnoremap <leader>gf :topleft Git diff<CR>
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => vim-gutentags
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" let g:gutentags_define_advanced_commands = 1
 let $GTAGSLABEL = 'native-pygments'
 let $GTAGSCONF = expand('~/.vim/vimrcI/gtags.conf')
 
@@ -324,10 +326,10 @@ command! -nargs=* Search call WrapAck(<f-args>)
 noremap <leader>ss mM:Search 
 
 " Ack the selected text
-vnoremap <leader>sv mM:call VSearch()<CR>
+vnoremap <leader>sv mM:<C-u>call VSearch()<CR>
 
 " Ack the word under the cursor 
-noremap <leader>* mM:call WSearch()<CR>
+noremap <leader>* mM:<C-u>call WSearch()<CR>
 
 
 function! WrapAck(...) 
