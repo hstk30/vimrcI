@@ -18,6 +18,12 @@
 除了[YouCompleteMe](https://github.com/ycm-core/YouCompleteMe#installation) 应该都很快下好了，
 否则你应该检查一下你的网络😕
 
+### 无插件版
+
+有时候只是临时需要登录某些服务器查看数据，不需要插件功能
+
+    git clone https://github.com/hstk30/vimrcI.git .vim/vimrcI
+    ln -s ~/.vim/vimrcI/no_plugin_vimrc ~/.vimrc
 
 ## 依赖
 

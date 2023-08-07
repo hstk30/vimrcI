@@ -15,6 +15,10 @@ Install VIM plugins
 
     :PlugInstall
 
+## No Plugin Ed
+
+    git clone https://github.com/hstk30/vimrcI.git .vim/vimrcI
+    ln -s ~/.vim/vimrcI/no_plugin_vimrc ~/.vimrc
 
 ## Dependency
 
