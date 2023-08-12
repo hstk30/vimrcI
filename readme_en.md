@@ -125,6 +125,11 @@ Memo: delete(`d`) first, then move to above/below(`k/j`)
 - `<leader>sv` `V` - Search the selected area in the project.
 - `<leader>*` `N` - Search the word under the cursor in the project.
 
+[QFGrep](https://github.com/sk1418/QFGrep) : Filter entries in Quickfix
+
+- `<leader>g` `N` - filter Quickfix-list entries
+- `<leader>v` `N` - like grep -v
+- `<leader>r` `N` - restore Quickfix-list
 
 [LeaderF](https://github.com/Yggdroot/LeaderF) : An efficient fuzzy finder
 

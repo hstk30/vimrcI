@@ -132,6 +132,11 @@ noremap \ ,
 - `<leader>sv` `V` - 当前项目下递归查找选中的内容
 - `<leader>*` `N` - 当前项目下递归查找当前光标下的单词
 
+[QFGrep](https://github.com/sk1418/QFGrep) : 过滤 Quickfix 列表
+
+- `<leader>g` `N` - 在Quickfix/location-list buffer中进一步过滤
+- `<leader>v` `N` - grep -v，先ACK，然后过滤一些 *test* 目录
+- `<leader>r` `N` - 恢复Quickfix/location-list
 
 [LeaderF](https://github.com/Yggdroot/LeaderF) : 文件模糊查找
 

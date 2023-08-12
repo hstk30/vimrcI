@@ -2,6 +2,7 @@ call plug#begin()
 
 " Search
 Plug 'git@github.com:mileszs/ack.vim'
+Plug 'git@github.com:sk1418/QFGrep.git'
 Plug 'git@github.com:Yggdroot/LeaderF'
 
 " Auxiliary
